@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+
+:root {
+    --primary-color: #007a7a;
+    --secondary-color: #007a7acc;
+
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+
+.btn-primary {
+    @apply bg-(--primary-color) shadow-xl shadow-(--primary-color) text-white font-semibold px-4 
+    w-[200px] rounded-xl hover:opacity-90 transition cursor-pointer;
+}
+
+.btn-link {
+    @apply text-slate-800;
+}
+
+
+.container {
+    @apply max-w-7xl mx-auto px-4;
+}

@@ -1,11 +1,562 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import { BOOK_ITEMS, PREVIEW_IMAGES } from "../const/app";
+import { FiSmartphone } from "react-icons/fi";
+import { MdOutlineLoop } from "react-icons/md";
+import { AiFillThunderbolt } from "react-icons/ai";
+import "../styles/global.css";
+const pageTitle =
+    "บังแหลมอ่านไร - แนวข้อสอบนักวิชาการศุลกากรปฏิบัติการ 2569 - Mock Test Google Form";
+const description =
+    "เตรียมสอบนักวิชาการศุลกากร 2569 ด้วย Mock Test ผ่าน Google Form ทำข้อสอบได้ทุกที่ รู้คะแนนทันที พร้อมเฉลยละเอียด 1,600+ ข้อ เพียง 199 บาท";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="th">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="/app.css" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://facebook.com/banglam.anrai/" />
+    </head>
+    <body>
+        <Navbar />
+        <section
+            class="relative md:max-h-[500px] md:pt-0 pt-10 overflow-hidden"
+        >
+            <div
+                class="absolute -inset-1 bg-gradient-to-r from-blue-100 to-cyan-100 blur opacity-75 group-hover:opacity-100 transition duration-1000"
+            >
+            </div>
+            <div
+                class="container relative z-10 mx-auto px-6 flex flex-col md:flex-row items-center gap-16"
+            >
+                <div class="w-full md:w-3/5 text-left">
+                    <span
+                        class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-50 text-(--primary-color) mb-6"
+                    >
+                        อัปเดตแนวข้อสอบปี 2569
+                    </span>
+                    <h1
+                        class="text-5xl md:text-5xl font-bold leading-[1.15] mb-2 tracking-tight"
+                    >
+                        <div class="font-thin">กำลังตามหาแนวข้อสอบ</div>
+                        <div class="text-(--primary-color)">
+                            นักวิชาการศุลกากร
+                        </div>
+                    </h1>
+                    <div class="text-3xl md:text-3xl mb-5">ใช่ไหม?</div>
+                    <p
+                        class="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed"
+                    >
+                        ฝึกทำข้อสอบผ่าน Google Form
+                        ไม่ต้องเปิด-ปิดเฉลยให้วุ่นวาย รองรับทั้งมือถือ คอม และ
+                        iPad ทำซ้ำได้ไม่จำกัดจนกว่าจะแม่นยำ
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a
+                            target="_blank"
+                            href="https://www.facebook.com/banglam.anrai/"
+                            class="px-8 py-4 bg-(--primary-color) text-white rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-(--secondary-color) transition-all text-center"
+                        >
+                            เริ่มทำ Mock Test
+                        </a>
+                        <a
+                            href="#mock-test"
+                            class="px-8 py-4 border bg-white border-gray-200 text-gray-600 rounded-2xl font-semibold hover:bg-gray-50 transition-all text-center"
+                        >
+                            ดูรายละเอียดชุดข้อสอบ
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="w-full md:w-2/5 flex justify-center relative md:bottom-10 bottom-0"
+                >
+                    <div class="relative group">
+                        <div
+                            class="relative flex items-center justify-center overflow-hidden"
+                        >
+                            <img
+                                src="/banglam.webp"
+                                alt="บังแหลมอ่านไร"
+                                class="object-contain"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- แนะนำแนวข้อสอบ -->
+
+        <section id="#exam" class="py-20 bg-gray-50">
+            <div class="container mx-auto">
+                <div class="max-w-3xl mx-auto text-center">
+                    <!-- Title -->
+                    <h2
+                        class="text-2xl md:text-4xl font-semibold leading-tight"
+                    >
+                        อยากทำข้อสอบ
+                        <span class="text-(--primary-color)"
+                            >เวลาหยิบมือถือ</span
+                        >
+                        ใช่ไหม?
+                    </h2>
+
+                    <!-- Description -->
+                    <p class="mt-6 text-gray-600 leading-relaxed">
+                        ผมทำ <strong>Mock Test แบบ Google Form</strong> ไว้ให้แล้ว
+                        ทำข้อสอบเสร็จ <span class="font-medium"
+                            >รู้คะแนนทันที</span
+                        >
+                        ไม่ต้องรอเฉลย
+                    </p>
+
+                    <!-- Feature list -->
+                    <div class="mt-10 grid gap-6 md:grid-cols-3">
+                        <div
+                            class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition"
+                        >
+                            <div class="text-3xl mb-3 flex justify-center"><FiSmartphone /></div>
+                            <h3 class="font-medium mb-1">ทำได้ทุกอุปกรณ์</h3>
+                            <p class="text-sm text-gray-500">
+                                มือถือ คอม iPad เปิดทำได้ทันที
+                            </p>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition"
+                        >
+                            <div class="text-3xl mb-3 flex justify-center"><AiFillThunderbolt /></div>
+                            <h3 class="font-medium mb-1">รู้ผลทันที</h3>
+                            <p class="text-sm text-gray-500">
+                                ส่งคำตอบแล้วดูคะแนนได้เลย
+                            </p>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition"
+                        >
+                            <div class="text-3xl mb-3 flex justify-center"><MdOutlineLoop /></div>
+                            <h3 class="font-medium mb-1">ทำซ้ำไม่จำกัด</h3>
+                            <p class="text-sm text-gray-500">
+                                ทำกี่รอบก็ได้ จนกว่าจะได้เต็ม
+                            </p>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- mock test -->
+
+        <section id="mock-test" class="py-24 bg-white">
+            <div class="container mx-auto">
+                <!-- Header -->
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-semibold">
+                        Mock Test แบบ
+                        <span class="text-(--primary-color)">Google Form</span>
+                    </h2>
+                    <p class="mt-6 text-gray-600 leading-relaxed">
+                        รวมข้อสอบทั้งหมด <strong>16 ชุด</strong>
+                        ทำซ้ำได้ไม่จำกัด รู้คะแนนและเฉลยทันที
+                    </p>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="grid gap-8 lg:grid-cols-2">
+                    <!-- Left -->
+                    <div class="space-y-8">
+                        <!-- Core Tests -->
+                        <div class="rounded-2xl border p-8 border-slate-300">
+                            <h3 class="text-xl font-semibold mb-3">
+                                📘 ชุด ตต Test นวก.ศุล 1 – 10
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                ชุดละ <strong>100 ข้อ</strong> รวมทั้งหมด <strong
+                                    >1,000 ข้อ</strong
+                                >
+                            </p>
+
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• พ.ร.บ.ศุลกากร พ.ศ. 2560</li>
+                                <li>• พ.ร.ก.พิกัดอัตราศุลกากร พ.ศ. 2530</li>
+                                <li>• ความรู้ทั่วไปกรมศุลกากร</li>
+                                <li>• การค้าระหว่างประเทศ</li>
+                                <li>• พ.ร.บ.ระเบียบข้าราชการพลเรือน 2551</li>
+                                <li>• พ.ร.บ.จริยธรรม 2562</li>
+                                <li>• จริยธรรมศุลกากร</li>
+                            </ul>
+                        </div>
+
+                        <!-- True / False -->
+                        <div class="rounded-2xl border p-8 border-slate-300">
+                            <h3 class="text-xl font-semibold mb-3">
+                                ✅ ชุด Quiz ถูก–ผิด (แถม)
+                            </h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• พ.ร.บ.ศุลกากร 2560 (1) — 100 ข้อ</li>
+                                <li>• พ.ร.บ.ศุลกากร 2560 (2) — 100 ข้อ</li>
+                                <li>• พิกัดอัตราศุลกากร 2530 — 60 ข้อ</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="space-y-8">
+                        <!-- Special Law -->
+                        <div class="rounded-2xl border p-8 border-slate-300">
+                            <h3 class="text-xl font-semibold mb-3">
+                                ⚖️ ชุด Mock Test พิเศษ (กฎหมาย)
+                            </h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• พระราชบัญญัติศุลกากร — 110 ข้อ</li>
+                                <li>• พ.ร.ก.พิกัดอัตราศุลกากร — 40 ข้อ</li>
+                            </ul>
+                        </div>
+
+                        <!-- Extra -->
+                        <div class="rounded-2xl border p-8 border-slate-300">
+                            <h3 class="text-xl font-semibold mb-3">
+                                🔥 Mock Test เพิ่มเติม (ตามมาภายหลัง)
+                            </h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• ตต Mock Test นวก.ศุล (1) — 100 ข้อ</li>
+                                <li>• ตต Mock Test นวก.ศุล (2) — 70 ข้อ</li>
+                                <li>
+                                    • ตต Mock Test นวก.ศุล (3) — 30 ข้อ
+                                    <span class="text-sm text-gray-400"
+                                        >(ปล่อย 30 ม.ค. 69)</span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Hard Level -->
+                        <div
+                            class="rounded-2xl p-8 bg-(--secondary-color)/30 border border-(--secondary-color)"
+                        >
+                            <h3 class="text-xl font-semibold mb-3">
+                                🧠 ชุดระดับยาก (สายวิเคราะห์)
+                            </h3>
+                            <p class="text-gray-700">
+                                แนวคำถาม <strong>“ข้อใดผิด”</strong>
+                                ตัวเลือกซับซ้อน A B C / ก. C ข. B C ฝึกคิดแบบข้อสอบจริง
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div
+                    class="mt-16 bg-[url('/green-bg.avif')]
+                    bg-cover rounded-[2.5rem] p-12 text-center text-white relative overflow-hidden"
+                >
+                    <div class="relative z-10">
+                        <p class="text-blue-100 text-lg mb-2">
+                            เข้าถึงได้ตลอดชีพ ทุกชุดข้อสอบ
+                        </p>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-8">
+                            199 บาท
+                        </h2>
+                        <a
+                            href="https://www.facebook.com/banglam.anrai/"
+                            class="inline-flex items-center gap-3 px-10 py-5 bg-white text-(--primary-color) rounded-full font-bold transition-transform"
+                        >
+                            สมัครผ่าน Facebook Messenger <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <section id="preview" class="py-32 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-20">
+                <span
+                    class="text-red-600 font-bold tracking-[0.2em] uppercase text-xs"
+                    >Behind the scenes</span
+                >
+                <h2 class="text-3xl md:text-5xl font-bold mt-4 tracking-tight">
+                    เจาะลึกระบบ <span class="text-red-600">Mock Test</span>
+                </h2>
+                <p
+                    class="text-gray-500 mt-6 max-w-2xl mx-auto text-lg leading-relaxed"
+                >
+                    จำลองสนามสอบจริงผ่านระบบออนไลน์
+                    ให้คุณโฟกัสกับการทำโจทย์ได้อย่างเต็มที่
+                </p>
+            </div>
+
+            <div class="space-y-24">
+                {
+                    PREVIEW_IMAGES.map((item, index) => (
+                        <div
+                            class={`flex flex-col items-center gap-12 md:gap-20 ${index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
+                        >
+                            <div class="w-full md:w-2/5">
+                                <div class="relative group">
+                                    <div class="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-white opacity-40 blur-2xl group-hover:opacity-60 transition duration-500" />
+
+                                    <div class="relative rounded-3xl overflow-hidden border border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            class="w-full h-auto object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-full md:w-2/5">
+                                <div class="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-[10px] font-black uppercase tracking-widest rounded-full mb-6">
+                                    {item.tag}
+                                </div>
+                                <h3 class="text-3xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
+                                    {item.title}
+                                </h3>
+                                <p class="text-gray-500 text-lg leading-relaxed">
+                                    {item.description}
+                                </p>
+
+                                <div class="mt-8 flex items-center gap-2 text-blue-600 font-bold">
+                                    <span class="w-8 h-[2px] bg-blue-600" />
+                                    <span>Explore Feature</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- gallery -->
+
+    <section id="gallery" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2  gap-5">
+            {["/exams/4.jpg","/exams/5.jpg"].map((book) =><div 
+                class="aspect-[3/4]  rounded-2xl bg-gray-100 mb-6 overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 relative"
+            >
+                <img
+                    src={book}
+                    alt={book}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+
+              
+            </div>)}
+        </div>
+    </section>
+
+    <!-- book -->
+    <section id="recommended-books" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div
+                class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4"
+            >
+                <div class="max-w-xl">
+                    <span
+                        class="text-blue-600 font-bold tracking-widest uppercase text-sm"
+                        >Curated for you</span
+                    >
+                    <h2
+                        class="text-3xl md:text-4xl font-bold mt-2 tracking-tight"
+                    >
+                        หนังสือแนะนำจาก บังแหลม
+                    </h2>
+                    <p class="text-gray-500 mt-4 leading-relaxed">
+                        นอกจากการทำ Mock Test แล้ว
+                        การอ่านเนื้อหาที่ถูกต้องก็สำคัญ
+                        นี่คือหนังสือที่ผมคัดมาให้แล้วว่าเนื้อหาแน่น ครบถ้วน
+                        สำหรับเตรียมสอบปี 2569
+                    </p>
+                </div>
+                <div class="hidden md:block">
+                    <a
+                        href="https://www.facebook.com/banglam.anrai/"
+                        target="_blank"
+                        class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2 transition-all"
+                    >
+                        สอบถามรายละเอียดหนังสือ <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                {
+                    BOOK_ITEMS.map((book) => (
+                        <a
+                            href={book.link}
+                            target="_blank"
+                            class="group cursor-pointer"
+                        >
+                            <div class="aspect-[3/4] rounded-2xl bg-gray-100 mb-6 overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 relative">
+                                <img
+                                    src={book.image}
+                                    alt={book.title}
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+
+                                {book.badge && (
+                                    <div class="absolute top-4 left-4">
+                                        <span class="px-3 py-1 bg-white/95 backdrop-blur-sm text-[10px] font-black rounded-full shadow-sm text-blue-600 tracking-tighter">
+                                            {book.badge}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                                {book.title}
+                            </h3>
+                            <p class="text-sm text-gray-500 leading-relaxed mb-6 line-clamp-2">
+                                {book.description}
+                            </p>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                                <div class="flex flex-col">
+                                    <span class="text-2xl font-bold text-slate-900 leading-none">
+                                        {book.price} บาท
+                                    </span>
+                                </div>
+                                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                                    {book.status}
+                                </span>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+
+            <div class="mt-12 md:hidden text-center">
+                <a
+                    href="https://www.facebook.com/banglam.anrai/"
+                    target="_blank"
+                    class="inline-block px-8 py-4 bg-gray-50 text-blue-600 font-bold rounded-xl w-full"
+                >
+                    สอบถามรายละเอียดหนังสือ →
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- try -->
+
+    <section id="try-it" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col items-center text-center">
+                <span
+                    class="px-4 py-1.5 rounded-full bg-blue-50 text-(--primary-color) text-sm font-semibold tracking-wide uppercase mb-6"
+                >
+                    Ready to test?
+                </span>
+
+                <h2
+                    class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+                >
+                    ลองทำ <span class="text-(--primary-color)">Mock Test</span> ได้ทันที
+                </h2>
+
+                <p class="text-lg text-gray-500 max-w-2xl mb-12">
+                    ท้าทายตัวเองด้วย <span class="font-semibold text-gray-800"
+                        >2 ชุดข้อสอบระดับยาก</span
+                    > เน้นการคิดวิเคราะห์รูปแบบ “ข้อใดผิด” พร้อมตัวเลือกที่ซับซ้อนเสมือนลงสนามจริง
+                </p>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mb-16"
+                >
+                    <div class="flex gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            <span class="font-bold text-gray-900"
+                                >ทุกที่ ทุกเวลา:</span
+                            > รองรับทั้งมือถือ คอมพิวเตอร์ และ iPad ฝึกฝนได้ไม่จำกัดจำนวนครั้ง
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            <span class="font-bold text-gray-900"
+                                >รู้ผลทันที:</span
+                            > มีเฉลยละเอียดและแหล่งอ้างอิงให้อ่านเพิ่ม ไม่ต้องเสียเวลาพลิกหาเอง
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-4">
+                    <a
+                        href="https://www.facebook.com/banglam.anrai/"
+                        target="_blank"
+                        class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-800"
+                    >
+                        สมัครผ่าน Facebook Messenger
+                        <svg
+                            class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
+                        >
+                    </a>
+                    <p class="text-xs text-gray-400">@banglam.anrai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</html>
