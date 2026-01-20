@@ -34,6 +34,22 @@ const description =
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content="https://facebook.com/banglam.anrai/" />
+
+        <script is:inline>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js",
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-TF9VJQFW");
+        </script>
     </head>
     <body>
         <Navbar />
@@ -51,7 +67,7 @@ const description =
                     <span
                         class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-50 text-(--primary-color) mb-6"
                     >
-                       อัปเดตข้อมูลล่าสุดตามปี 69
+                        อัปเดตข้อมูลล่าสุดตามปี 69
                     </span>
                     <h1
                         class="text-5xl md:text-5xl font-bold leading-[1.15] mb-2 tracking-tight"
@@ -134,7 +150,9 @@ const description =
                         <div
                             class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition"
                         >
-                            <div class="text-3xl mb-3 flex justify-center"><FiSmartphone /></div>
+                            <div class="text-3xl mb-3 flex justify-center">
+                                <FiSmartphone />
+                            </div>
                             <h3 class="font-medium mb-1">ทำได้ทุกอุปกรณ์</h3>
                             <p class="text-sm text-gray-500">
                                 มือถือ คอม iPad เปิดทำได้ทันที
@@ -144,7 +162,9 @@ const description =
                         <div
                             class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition"
                         >
-                            <div class="text-3xl mb-3 flex justify-center"><AiFillThunderbolt /></div>
+                            <div class="text-3xl mb-3 flex justify-center">
+                                <AiFillThunderbolt />
+                            </div>
                             <h3 class="font-medium mb-1">รู้ผลทันที</h3>
                             <p class="text-sm text-gray-500">
                                 ส่งคำตอบแล้วดูคะแนนได้เลย
@@ -154,15 +174,15 @@ const description =
                         <div
                             class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition"
                         >
-                            <div class="text-3xl mb-3 flex justify-center"><MdOutlineLoop /></div>
+                            <div class="text-3xl mb-3 flex justify-center">
+                                <MdOutlineLoop />
+                            </div>
                             <h3 class="font-medium mb-1">ทำซ้ำไม่จำกัด</h3>
                             <p class="text-sm text-gray-500">
                                 ทำกี่รอบก็ได้ จนกว่าจะได้เต็ม
                             </p>
                         </div>
                     </div>
-
-                    
                 </div>
             </div>
         </section>
@@ -274,7 +294,8 @@ const description =
                 >
                     <div class="relative z-10">
                         <p class="text-blue-100 text-lg mb-2">
-                            เข้าทำ Mock Test ข้อสอบศุลกากร ได้ตลอด ไม่จำกัดระยะเวลา จนกว่าบังจะเข้าเมลไม่ได้
+                            เข้าทำ Mock Test ข้อสอบศุลกากร ได้ตลอด
+                            ไม่จำกัดระยะเวลา จนกว่าบังจะเข้าเมลไม่ได้
                         </p>
                         <h2 class="text-5xl md:text-7xl font-bold mb-8">
                             199 บาท
@@ -286,12 +307,10 @@ const description =
                             สมัครผ่าน Facebook Messenger <span>→</span>
                         </a>
                     </div>
-
                 </div>
-                
             </div>
         </section>
-    </body>
+    
 
     <section id="preview" class="py-32 bg-slate-50">
         <div class="container mx-auto px-6 max-w-6xl">
@@ -357,18 +376,18 @@ const description =
     <!-- gallery -->
 
     <section id="gallery" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2  gap-5">
-            {["/exams/4.jpg","/exams/5.jpg"].map((book) =><div 
-                class="aspect-[3/4]  rounded-2xl bg-gray-100 mb-6 overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 relative"
-            >
-                <img
-                    src={book}
-                    alt={book}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-
-              
-            </div>)}
+        <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-5">
+            {
+                ["/exams/4.jpg", "/exams/5.jpg"].map((book) => (
+                    <div class="aspect-[3/4]  rounded-2xl bg-gray-100 mb-6 overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 relative">
+                        <img
+                            src={book}
+                            alt={book}
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                    </div>
+                ))
+            }
         </div>
     </section>
 
@@ -477,7 +496,8 @@ const description =
                 <h2
                     class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
                 >
-                    ลองทำ <span class="text-(--primary-color)">Mock Test</span> ข้อสอบศุลกากร ฟรี ที่นี่!
+                    ลองทำ <span class="text-(--primary-color)">Mock Test</span> ข้อสอบศุลกากร
+                    ฟรี ที่นี่!
                 </h2>
 
                 <p class="text-lg text-gray-500 max-w-2xl mb-12">
@@ -557,7 +577,7 @@ const description =
                     <a
                         href="https://www.facebook.com/banglam.anrai/"
                         target="_blank"
-                        class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-blue-500 font-pj rounded-full focus:outline-none 
+                        class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-blue-500 font-pj rounded-full focus:outline-none
                         focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 hover:bg-blue-800"
                     >
                         ทักเพจซื้อ Mock Test ข้อสอบนักวิชาการศุลกากร ที่นี่
@@ -580,4 +600,16 @@ const description =
     </section>
 
     <Footer />
+
+    <noscript>
+        <iframe
+            src="https://www.googletagmanager.com/gtm.js?id=GTM-TF9VJQFW"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+        >
+        </iframe>
+    </noscript>
+
+    </body>
 </html>
