@@ -2,57 +2,63 @@
 import { MENU_ITEMS } from "../const/app";
 ---
 
-<header class="w-full h-[72px] flex items-center md:px-10 px-4 py-12 justify-center">
-  <nav class="flex container justify-between items-center w-full relative">
+<header
+  class="w-full h-[72px] flex items-center md:px-10 px-4 py-12 justify-center"
+>
+  <nav class="grid grid-cols-2 container items-center w-full relative">
     <!-- Logo -->
-    <div class="font-bold text-2xl w-[150px]">
-      Banglam Anrai
-    </div>
-
-    <!-- Desktop Menu -->
-    <div class="w-full md:flex hidden justify-center">
-      {MENU_ITEMS.map((item) => (
-        <a
-          href={item.link}
-          class="btn-link font-medium mx-4 hover:underline"
-        >
-          {item.name}
-        </a>
-      ))}
+    <div class="flex items-center">
+      <div class="font-bold text-2xl w-[150px]">Banglam Anrai</div>
+      <!-- Desktop Menu -->
+      <div class="w-full md:flex hidden justify-start">
+        {
+          MENU_ITEMS.map((item) => (
+            <a href={item.link} class="btn-link line-clamp-1 font-medium mx-4 hover:underline">
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
     </div>
 
     <!-- Desktop CTA -->
-    <a
-      href="#try-it"
-      class="btn-primary text-center justify-center md:flex hidden px-6 py-3 rounded-xl"
-    >
-      ลองทำเลย
-    </a>
+    <div class="w-full md:flex hidden justify-end">
+      <a
+        href="https://forms.gle/NcKeL3WXn1gUymqk7"
+        class="btn-primary max-w-[400px] self-end text-center justify-center md:flex hidden px-6 py-3 w-full rounded-xl"
+      >
+        ทดลองทำ Mock Test ข้อสอบศุลกากรฟรี
+      </a>
+    </div>
 
     <!-- Mobile Toggle -->
-    <button
-      id="menu-toggle"
-      class="md:hidden flex items-center justify-center w-10 h-10 btn-primary max-w-10 rounded-lg border border-zinc-300 shadow-xl"
-      aria-label="Toggle menu"
-    >
-      ☰
-    </button>
+    <div class="w-full flex justify-end md:hidden">
+      <button
+        id="menu-toggle"
+        class="md:hidden flex items-center justify-center w-10 h-10 btn-primary max-w-10 rounded-lg border border-zinc-300 shadow-xl"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+    </div>
 
     <!-- Mobile Menu -->
     <div
       id="mobile-menu"
-      class="absolute top-full left-0 z-10 w-full
+      class="absolute top-full left-0 z-50 w-full
       border border-zinc-200 bg-white shadow-xl rounded-2xl mt-10 p-6 hidden md:hidden"
     >
       <div class="flex flex-col gap-4">
-        {MENU_ITEMS.map((item) => (
-          <a
-            href={item.link}
-            class="font-medium py-2 border-b border-gray-100"
-          >
-            {item.name}
-          </a>
-        ))}
+        {
+          MENU_ITEMS.map((item) => (
+            <a
+              href={item.link}
+              class="font-medium py-2 border-b border-gray-100"
+            >
+              {item.name}
+            </a>
+          ))
+        }
 
         <!-- Mobile CTA -->
         <!-- <a
@@ -61,6 +67,12 @@ import { MENU_ITEMS } from "../const/app";
         >
           ลองทำเลย
         </a> -->
+        <a
+          href="https://forms.gle/NcKeL3WXn1gUymqk7"
+          class="btn-primary text-center justify-center px-6 py-3 w-full rounded-xl"
+        >
+          ทดลองทำ Mock Test ข้อสอบศุลกากรฟรี
+        </a>
       </div>
     </div>
   </nav>
