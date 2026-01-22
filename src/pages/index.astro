@@ -30,6 +30,11 @@ const description =
 
         <link rel="stylesheet" href="/app.css" />
 
+        <meta
+            name="google-site-verification"
+            content="jO3FFB8oTgsRapsB1kbeEvoxI3xgKSlTOgcMUshS8hs"
+        />
+
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
@@ -103,16 +108,26 @@ const description =
                 </div>
 
                 <div
-                    class="w-full md:w-2/5 flex justify-center relative md:bottom-10 bottom-0"
+                    class="w-full md:w-2/5  flex justify-center relative md:bottom-10 bottom-0"
                 >
-                    <div class="relative group">
+                    <div class="relative translate-y-12 w-[800px] h-[500px]">
                         <div
-                            class="relative flex items-center justify-center overflow-hidden"
+                            class="absolute inset-0 flex items-center justify-center animate-crossfade-primary"
                         >
                             <img
                                 src="/banglam.webp"
                                 alt="บังแหลมอ่านไร"
-                                class="object-contain"
+                                class="object-contain w-full h-[700px]"
+                            />
+                        </div>
+
+                        <div
+                            class="absolute inset-0 flex items-center justify-center animate-crossfade-secondary"
+                        >
+                            <img
+                                src="/mockup.webp"
+                                alt="บังแหลมอ่านไร tiktok"
+                                class="object-contain w-full h-full"
                             />
                         </div>
                     </div>
@@ -310,89 +325,92 @@ const description =
                 </div>
             </div>
         </section>
-    
 
-    <section id="preview" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-20">
-                <span
-                    class="text-red-600 font-bold tracking-[0.2em] uppercase text-xs"
-                    >Behind the scenes</span
-                >
-                <h2 class="text-3xl md:text-5xl font-bold mt-4 tracking-tight">
-                    เจาะลึกระบบ <span class="text-red-600">Mock Test</span>
-                </h2>
-                <p
-                    class="text-gray-500 mt-6 max-w-2xl mx-auto text-lg leading-relaxed"
-                >
-                    จำลองสนามสอบจริงผ่านระบบออนไลน์
-                    ให้คุณโฟกัสกับการทำโจทย์ได้อย่างเต็มที่
-                </p>
-            </div>
+        <section id="preview" class="py-32 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="text-center mb-20">
+                    <span
+                        class="text-red-600 font-bold tracking-[0.2em] uppercase text-xs"
+                        >Behind the scenes</span
+                    >
+                    <h2
+                        class="text-3xl md:text-5xl font-bold mt-4 tracking-tight"
+                    >
+                        เจาะลึกระบบ <span class="text-red-600">Mock Test</span>
+                    </h2>
+                    <p
+                        class="text-gray-500 mt-6 max-w-2xl mx-auto text-lg leading-relaxed"
+                    >
+                        จำลองสนามสอบจริงผ่านระบบออนไลน์
+                        ให้คุณโฟกัสกับการทำโจทย์ได้อย่างเต็มที่
+                    </p>
+                </div>
 
-            <div class="space-y-24">
-                {
-                    PREVIEW_IMAGES.map((item, index) => (
-                        <div
-                            class={`flex flex-col items-center gap-12 md:gap-20 ${index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
-                        >
-                            <div class="w-full md:w-2/5">
-                                <div class="relative group">
-                                    <div class="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-white opacity-40 blur-2xl group-hover:opacity-60 transition duration-500" />
+                <div class="space-y-24">
+                    {
+                        PREVIEW_IMAGES.map((item, index) => (
+                            <div
+                                class={`flex flex-col items-center gap-12 md:gap-20 ${index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
+                            >
+                                <div class="w-full md:w-2/5">
+                                    <div class="relative group">
+                                        <div class="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-white opacity-40 blur-2xl group-hover:opacity-60 transition duration-500" />
 
-                                    <div class="relative rounded-3xl overflow-hidden border border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            class="w-full h-auto object-cover"
-                                        />
+                                        <div class="relative rounded-3xl overflow-hidden border border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                class="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="w-full md:w-2/5">
+                                    <div class="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-[10px] font-black uppercase tracking-widest rounded-full mb-6">
+                                        {item.tag}
+                                    </div>
+                                    <h3 class="text-3xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
+                                        {item.title}
+                                    </h3>
+                                    <p class="text-gray-500 text-lg leading-relaxed">
+                                        {item.description}
+                                    </p>
+
+                                    <div class="mt-8 flex items-center gap-2 text-blue-600 font-bold">
+                                        <span class="w-8 h-[2px] bg-blue-600" />
+                                        <span>Explore Feature</span>
                                     </div>
                                 </div>
                             </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
 
-                            <div class="w-full md:w-2/5">
-                                <div class="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-[10px] font-black uppercase tracking-widest rounded-full mb-6">
-                                    {item.tag}
-                                </div>
-                                <h3 class="text-3xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-                                    {item.title}
-                                </h3>
-                                <p class="text-gray-500 text-lg leading-relaxed">
-                                    {item.description}
-                                </p>
+        <!-- gallery -->
 
-                                <div class="mt-8 flex items-center gap-2 text-blue-600 font-bold">
-                                    <span class="w-8 h-[2px] bg-blue-600" />
-                                    <span>Explore Feature</span>
-                                </div>
-                            </div>
+        <section id="gallery" class="py-24 bg-white">
+            <div
+                class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-5"
+            >
+                {
+                    ["/exams/4.jpg", "/exams/5.jpg"].map((book) => (
+                        <div class="aspect-[3/4]  rounded-2xl bg-gray-100 mb-6 overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 relative">
+                            <img
+                                src={book}
+                                alt={book}
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
                         </div>
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- gallery -->
-
-    <section id="gallery" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-5">
-            {
-                ["/exams/4.jpg", "/exams/5.jpg"].map((book) => (
-                    <div class="aspect-[3/4]  rounded-2xl bg-gray-100 mb-6 overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 relative">
-                        <img
-                            src={book}
-                            alt={book}
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                    </div>
-                ))
-            }
-        </div>
-    </section>
-
-    <!-- book -->
-    <!-- <section id="recommended-books" class="py-24 bg-white">
+        <!-- book -->
+        <!-- <section id="recommended-books" class="py-24 bg-white">
         <div class="container mx-auto px-6 max-w-6xl">
             <div
                 class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4"
@@ -482,134 +500,135 @@ const description =
             </div>
         </div>
     </section> -->
-    <!-- try -->
+        <!-- try -->
 
-    <section id="try-it" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="flex flex-col items-center text-center">
-                <span
-                    class="px-4 py-1.5 rounded-full bg-blue-50 text-(--primary-color) text-sm font-semibold tracking-wide uppercase mb-6"
-                >
-                    Ready to test?
-                </span>
-
-                <h2
-                    class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
-                >
-                    ลองทำ <span class="text-(--primary-color)">Mock Test</span> ข้อสอบศุลกากร
-                    ฟรี ที่นี่!
-                </h2>
-
-                <p class="text-lg text-gray-500 max-w-2xl mb-12">
-                    ท้าทายตัวเองด้วย <span class="font-semibold text-gray-800"
-                        >2 ชุดข้อสอบระดับยาก</span
-                    > เน้นการคิดวิเคราะห์รูปแบบ “ข้อใดผิด” พร้อมตัวเลือกที่ซับซ้อนเสมือนลงสนามจริง
-                </p>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mb-16"
-                >
-                    <div class="flex gap-4">
-                        <div
-                            class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
-                        >
-                            <svg
-                                class="w-4 h-4"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                ><path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="3"
-                                    d="M5 13l4 4L19 7"></path></svg
-                            >
-                        </div>
-                        <p class="text-gray-600 text-sm">
-                            <span class="font-bold text-gray-900"
-                                >ทุกที่ ทุกเวลา:</span
-                            > รองรับทั้งมือถือ คอมพิวเตอร์ และ iPad ฝึกฝนได้ไม่จำกัดจำนวนครั้ง
-                        </p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div
-                            class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
-                        >
-                            <svg
-                                class="w-4 h-4"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                ><path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="3"
-                                    d="M5 13l4 4L19 7"></path></svg
-                            >
-                        </div>
-                        <p class="text-gray-600 text-sm">
-                            <span class="font-bold text-gray-900"
-                                >รู้ผลทันที:</span
-                            > มีเฉลยละเอียดและแหล่งอ้างอิงให้อ่านเพิ่ม ไม่ต้องเสียเวลาพลิกหาเอง
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col items-center gap-4">
-                    <a
-                        href="https://forms.gle/NcKeL3WXn1gUymqk7"
-                        target="_blank"
-                        class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-800"
+        <section id="try-it" class="py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <div class="flex flex-col items-center text-center">
+                    <span
+                        class="px-4 py-1.5 rounded-full bg-blue-50 text-(--primary-color) text-sm font-semibold tracking-wide uppercase mb-6"
                     >
-                        ทำ Mock Test ข้อสอบศุลกากร ฟรี
-                        <svg
-                            class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            ><path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
+                        Ready to test?
+                    </span>
+
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+                    >
+                        ลองทำ <span class="text-(--primary-color)"
+                            >Mock Test</span
+                        > ข้อสอบศุลกากร ฟรี ที่นี่!
+                    </h2>
+
+                    <p class="text-lg text-gray-500 max-w-2xl mb-12">
+                        ท้าทายตัวเองด้วย <span
+                            class="font-semibold text-gray-800"
+                            >2 ชุดข้อสอบระดับยาก</span
+                        > เน้นการคิดวิเคราะห์รูปแบบ “ข้อใดผิด” พร้อมตัวเลือกที่ซับซ้อนเสมือนลงสนามจริง
+                    </p>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mb-16"
+                    >
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="3"
+                                        d="M5 13l4 4L19 7"></path></svg
+                                >
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                <span class="font-bold text-gray-900"
+                                    >ทุกที่ ทุกเวลา:</span
+                                > รองรับทั้งมือถือ คอมพิวเตอร์ และ iPad ฝึกฝนได้ไม่จำกัดจำนวนครั้ง
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="3"
+                                        d="M5 13l4 4L19 7"></path></svg
+                                >
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                <span class="font-bold text-gray-900"
+                                    >รู้ผลทันที:</span
+                                > มีเฉลยละเอียดและแหล่งอ้างอิงให้อ่านเพิ่ม ไม่ต้องเสียเวลาพลิกหาเอง
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-4">
+                        <a
+                            href="https://forms.gle/NcKeL3WXn1gUymqk7"
+                            target="_blank"
+                            class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-800"
                         >
-                    </a>
-                    <a
-                        href="https://www.facebook.com/banglam.anrai/"
-                        target="_blank"
-                        class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-blue-500 font-pj rounded-full focus:outline-none
+                            ทำ Mock Test ข้อสอบศุลกากร ฟรี
+                            <svg
+                                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
+                            >
+                        </a>
+                        <a
+                            href="https://www.facebook.com/banglam.anrai/"
+                            target="_blank"
+                            class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-blue-500 font-pj rounded-full focus:outline-none
                         focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 hover:bg-blue-800"
-                    >
-                        ทักเพจซื้อ Mock Test ข้อสอบนักวิชาการศุลกากร ที่นี่
-                        <svg
-                            class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            ><path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
                         >
-                    </a>
-                    <p class="text-xs text-gray-400">@banglam.anrai</p>
+                            ทักเพจซื้อ Mock Test ข้อสอบนักวิชาการศุลกากร ที่นี่
+                            <svg
+                                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
+                            >
+                        </a>
+                        <p class="text-xs text-gray-400">@banglam.anrai</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <Footer />
+        <Footer />
 
-    <noscript>
-        <iframe
-            src="https://www.googletagmanager.com/gtm.js?id=GTM-TF9VJQFW"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-        >
-        </iframe>
-    </noscript>
-
+        <noscript>
+            <iframe
+                src="https://www.googletagmanager.com/gtm.js?id=GTM-TF9VJQFW"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"
+            >
+            </iframe>
+        </noscript>
     </body>
 </html>

@@ -3,3 +3,22 @@
      font-family: "Google Sans", sans-serif;
 }
 
+@keyframes crossfade-1 {
+        0%, 45% { opacity: 1; z-index: 10; transform: scale(1); }
+        55%, 95% { opacity: 0; z-index: 0; transform: scale(0.95); }
+        100% { opacity: 1; }
+    }
+
+    @keyframes crossfade-2 {
+        0%, 45% { opacity: 0; z-index: 0; transform: scale(0.95); }
+        55%, 95% { opacity: 1; z-index: 10; transform: scale(1); }
+        100% { opacity: 0; }
+    }
+
+    .animate-crossfade-primary {
+        animation: crossfade-1 6s infinite ease-in-out;
+    }
+
+    .animate-crossfade-secondary {
+        animation: crossfade-2 6s infinite ease-in-out;
+    }
